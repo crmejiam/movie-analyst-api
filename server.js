@@ -36,12 +36,13 @@ app.get('/movies', function(req, res){
   //   {title : 'Ant-Man', release: '2015', score: 8, reviewer: 'Martin Thomas', publication : 'TheOne'},
   //   {title : 'Guardians of the Galaxy', release : '2014', score: 10, reviewer: 'Anthony Miller', publication : 'ComicBookHero.com'},
   // ]
-  connection.query('SELECT * FROM movie_db.movies', function(err, rows) {
+  connection.query('SELECT * FROM movie_db.moviereview', function(err, rows) {
     if (err) throw err;
-    res.render('movies', {title: 'Movies', movies: rows});
+    res.json(rows);
   });
-  // res.json(movies);
 })
+
+// LA PARTE DE GET MOVIES NO FUNCIONA BIEN
 
 //app.get('/', function(req, res, next) {   
     //now you can call the get-driver, passing a callback function

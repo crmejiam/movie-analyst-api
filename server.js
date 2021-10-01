@@ -43,13 +43,12 @@ app.get('/publications', function(req, res){
 
 // Implement the pending reviews API endpoint
 app.get('/pending', function(req, res){
-  var pending = [
-    {title : 'Superman: Homecoming', release: '2017', score: 10, reviewer: 'Chris Harris', publication: 'International Movie Critic'},
-    {title : 'Wonder Woman', release: '2017', score: 8, reviewer: 'Martin Thomas', publication : 'TheOne'},
-    {title : 'Doctor Strange', release : '2016', score: 7, reviewer: 'Anthony Miller', publication : 'ComicBookHero.com'}
-  ]
-  res.json(pending);
+  connection.query('SELECT * FROM pending', function(err, pending){
+    if (err) throw err;
+    res.json(pending);
+  });
 })
+
 console.log("server listening through port: "+process.env.PORT);
 // Launch our API Server and have it listen on port 3000.
 app.listen(process.env.PORT || 3000);

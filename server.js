@@ -1,3 +1,7 @@
+console.log("DB_HOST: " + process.env.DB_HOST);
+console.log("DB_HOST: " + process.env.DB_USER);
+console.log("DB_HOST: " + process.env.DB_PASS);
+
 // Get our dependencies
 var express = require('express');
 var app = express();

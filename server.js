@@ -2,7 +2,6 @@
 var express = require('express');
 var app = express();
 var mysql = require("mysql");
-
 require('dotenv').config();
 var connection = mysql.createConnection({
  host     : process.env.DB_HOST,
@@ -12,11 +11,6 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
-
-// Prints env variables to see if they have the correct value
-console.log("DB_HOST: " + process.env.DB_HOST);
-console.log("DB_USER: " + process.env.DB_USER);
-console.log("DB_PASS: " + process.env.DB_PASS);
 
 //Testing endpoint
 app.get('/', function(req, res){

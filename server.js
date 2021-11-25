@@ -2,7 +2,7 @@
 var express = require('express');
 var app = express();
 var mysql = require("mysql");
-require('dotenv').config();
+require('dotenv').config({path:__dirname+'/.env'});
 var connection = mysql.createConnection({
  host     : process.env.DB_HOST,
  user     : process.env.DB_USER,

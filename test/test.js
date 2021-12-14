@@ -17,6 +17,12 @@ describe('API', () => {
   // Test the /GET Route
   describe('/GET home', () => {
       it('it should GET any reply', (done) => {
+
+        mockAPI.get('/movies')
+        .reply(200, [{
+          "response" : 'hello'
+        }]);
+
         chai.request(API_IP)
             .get('/')
             .end((err, res) => {

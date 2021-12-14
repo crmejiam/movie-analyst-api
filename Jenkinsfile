@@ -8,7 +8,7 @@ pipeline {
         imageName = "crmejiam/rampup-backend"
         dockerCredentials = 'd08b1f0a-4cd6-4f33-b7f5-a9414a07f3ef'
         backImage = ''
-        ansibleIP = '10.1.5.153'
+        ansibleIP = '10.1.7.241'
         ansiblePort = '5000'
     }
     stages {

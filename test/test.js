@@ -18,15 +18,16 @@ describe('API', () => {
   describe('/GET home', () => {
       it('it should GET any reply', (done) => {
 
-        mockAPI.get('/movies')
+        mockAPI.get('/')
         .reply(200, [{
-          "response" : 'hello'
+          'response' : 'hello'
         }]);
 
         chai.request(API_IP)
             .get('/')
             .end((err, res) => {
                 res.should.have.status(200);
+                res.body[0].should.have.keys('response');
               done();
             });
       });

@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'test';
 //Require the dev-dependencies
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let server = require('../server');
+//let server = require('../server');
 let should = chai.should(); 
 let nock = require('nock');
 

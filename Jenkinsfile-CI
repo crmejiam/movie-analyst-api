@@ -8,8 +8,7 @@ pipeline {
         imageName = "crmejiam/rampup-backend"
         dockerCredentials = 'd08b1f0a-4cd6-4f33-b7f5-a9414a07f3ef'
         backImage = ''
-        ansibleIP = '10.1.7.241'
-        ansiblePort = '5000'
+
     }
     stages {
         stage('Test'){
@@ -41,9 +40,9 @@ pipeline {
                 sh 'ls -l'
             }
         }
-        stage('Deploy') {
+        stage ('Invoke_CD') {
             steps {
-                sh 'curl http://$ansibleIP:$ansiblePort/update/backend'
+                build job: 'backend_CD_pipeline', propagate: true, wait: true
             }
         }
     }

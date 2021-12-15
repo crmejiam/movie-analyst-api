@@ -44,6 +44,6 @@ pipeline {
             steps {
                 build job: 'backend_CD_pipeline', propagate: true, wait: true
             }
-        }
+        } 
     }
 } 

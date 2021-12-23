@@ -5,7 +5,7 @@ pipeline {
         skipStagesAfterUnstable()
     }
     environment{
-        ansibleIP = '10.1.1.220'
+        ansibleIP = '10.1.0.55'
         ansiblePort = '5000'
     }
     stages {

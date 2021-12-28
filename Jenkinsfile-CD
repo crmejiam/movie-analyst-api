@@ -1,0 +1,18 @@
+pipeline { 
+    agent any
+    tools {nodejs "nodejs"}
+    options {
+        skipStagesAfterUnstable()
+    }
+    environment{
+        ansibleIP = '10.1.1.118'
+        ansiblePort = '5000'
+    }
+    stages {
+        stage('Deploy') {
+            steps {
+                sh 'curl http://$ansibleIP:$ansiblePort/update/backend'
+            }
+        }
+    }
+} 

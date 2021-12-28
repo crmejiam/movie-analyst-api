@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'test';
 //Require the dev-dependencies
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let server = require('../server');
+//let server = require('../server');
 let should = chai.should(); 
 let nock = require('nock');
 
@@ -17,10 +17,17 @@ describe('API', () => {
   // Test the /GET Route
   describe('/GET home', () => {
       it('it should GET any reply', (done) => {
-        chai.request(server)
+
+        mockAPI.get('/')
+        .reply(200, [{
+          'response' : 'hello'
+        }]);
+
+        chai.request(API_IP)
             .get('/')
             .end((err, res) => {
                 res.should.have.status(200);
+                res.body[0].should.have.keys('response');
               done();
             });
       });
